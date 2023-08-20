@@ -16,4 +16,4 @@ int main()
     
 } 
 
-//cd "c:\Users\Franco\FACULTAD\Poo\Fecha\" ; if ($?) { g++ *.cpp -o main } ; if ($?) { .\main }
+//cd "c:\Users\Franco\FACULTAD\Github\Fecha\" ; if ($?) { g++ *.cpp -o main } ; if ($?) { .\main }
