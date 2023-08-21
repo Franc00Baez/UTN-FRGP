@@ -4,6 +4,9 @@
 class Articulo
 {
     public:
+    Articulo();
+    Articulo(const char *codigo, const char *descripcion, float precio, int stock, bool estado);
+    
     void Cargar();
     void Mostrar();
 

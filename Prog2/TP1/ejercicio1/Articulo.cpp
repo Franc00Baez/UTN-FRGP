@@ -1,37 +1,33 @@
 #include "Articulo.h"
 #include <iostream>
 
-///FUNCION PARA LEER CADENAS.
-void cargarCadena(char *palabra, int tamano){
 
-    int i=0;
+Articulo::Articulo()
+{
+    setCodigo(" ");
+    setDescripcion(" ");
+    setPrecio(0.00);
+    setStock(0);
+    setEstado(1);
 
-    fflush(stdin);
+}
 
-    for (i=0; i<tamano; i++){
-
-        palabra[i]=std::cin.get();
-
-        if (palabra[i]=='\n'){
-
-            break;
-
-        }
-
-    }
-
-    palabra[i]='\0';
-
-    fflush(stdin);
-
+Articulo::Articulo(const char *codigo, const char *descripcion, float precio, int stock, bool estado)
+{
+    setCodigo(codigo);
+    setDescripcion(descripcion);
+    setPrecio(precio);
+    setStock(stock);
+    setEstado(estado);
 }
 
 void Articulo::Cargar()
 {
     std::cout << "Ingrese un codigo (5 caracteres): ";
-    cargarCadena(codigo, 5);
+    std::cin >> codigo;
+    std::cin.ignore();
     std::cout << "Ingrese una descripcion (30 caracteres): ";
-    cargarCadena(descripcion, 30);
+    std::cin.getline(descripcion, 30);
     std::cout << "Ingrese el precio: ";
     std::cin >> precio;
     std::cout << "Ingrese el stock: ";
@@ -56,8 +52,48 @@ void Articulo::setCodigo(const char *codigo)
     this->codigo[5] = '\0';
 }
 
+void Articulo::setDescripcion(const char *descripcion)
+{
+    strncpy(this->descripcion, descripcion, 30);
+    this->descripcion[30] = '\0';
+}
+
+void Articulo::setPrecio(float precio)
+{
+    this->precio = precio;
+}
+
+void Articulo::setStock(int stock)
+{
+    this->stock = stock;
+}
+
+void Articulo::setEstado(bool estado)
+{
+    this->estado = estado;
+}
+
 const char *Articulo::getCodigo()
 {
     return codigo;
 }
 
+const char *Articulo::getDescripcion()
+{
+    return descripcion;
+}
+
+float Articulo::getPrecio()
+{
+    return precio;
+}
+
+int Articulo::getStock()
+{
+    return stock;
+}
+
+bool Articulo::getEstado()
+{
+    return estado;
+}
