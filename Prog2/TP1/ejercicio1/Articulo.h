@@ -24,8 +24,8 @@ class Articulo
 
     private:
     char codigo[5];
-    char descripcion[30];
     float precio;
+    char descripcion[30];
     int stock;
     bool estado;
 
