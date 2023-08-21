@@ -8,3 +8,4 @@ int PuntoD(Articulo *vArt, int tam, const char *codigo);
 Articulo PuntoE(Articulo *vArt, int tam, const char *codigo);
 int PuntoF(Articulo *vArt, int tam, int stock);
 void PuntoG(Articulo *vArt, int tam, float porcentaje);
+void Menu(Articulo *vArt, int tam);
