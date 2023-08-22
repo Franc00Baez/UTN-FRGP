@@ -17,12 +17,14 @@ class Fecha
     int getDia();
     int getMes();
     int getAnio();
+    std::string getNombreDia();
     
     protected:
     const int ANIO_DEFAULT = 2023;
     int _dia;
     int _mes;
     int _anio;
+    int _diaSemana;
     
     int dias_en_mes(int m, int a);
     void agregarDia();

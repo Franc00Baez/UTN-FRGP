@@ -1,14 +1,18 @@
 #include "fecha.h"
 #include <iostream>
+#include <ctime> 
 
 /**
  * Constructor por default.
 */
 Fecha::Fecha()
 {
-    setDia(1);
-    setMes(1);
-    setAnio(ANIO_DEFAULT);
+    time_t t = time(NULL);
+    struct tm *f = localtime(&t);
+    _dia = f->tm_mday;
+    _mes = f->tm_mon + 1;
+    _anio = f->tm_year + 1900;
+    _diaSemana = f->tm_wday;
 }
 /**
  * Constructor por parametros.
@@ -23,11 +27,13 @@ Fecha::Fecha(int d, int m, int a)
         setDia(d);
         setMes(m);
         setAnio(a);
+        _diaSemana = -1;
     }else 
     {
         setDia(1);
         setMes(1);
         setAnio(ANIO_DEFAULT);
+        _diaSemana = -1;
     }
     
 }
@@ -97,6 +103,16 @@ int Fecha::getMes()
 int Fecha::getAnio()
 {
         return _anio;
+}
+
+std::string Fecha::getNombreDia()
+{
+        std::string nombres[7] = {"Domingo", "Lunes", "Martes", "Miercoles", "Jueves", "Viernes", "Sabado"};
+        if(_diaSemana >= 0 && _diaSemana <= 6 ) 
+        {
+            return nombres[_diaSemana];
+        }
+        else{ return "";}
 }
 
 //protected 

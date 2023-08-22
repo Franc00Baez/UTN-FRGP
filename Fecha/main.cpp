@@ -3,13 +3,10 @@
 
 int main()
 {
-    Fecha p1(1, 3, 2023);
-
+    Fecha p1;
     std::cout<<p1.to_string()<<std::endl;
 
-    p1.agregarDias(-1);
-
-    std::cout<<p1.to_string()<<std::endl;
+    std::cout<<p1.getNombreDia()<<std::endl;
     
     
     system("PAUSE");
